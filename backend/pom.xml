@@ -21,6 +21,9 @@
         <java.version>17</java.version>
         <jjwt.version>0.12.6</jjwt.version>
         <lombok.version>1.18.46</lombok.version>
+        <sonar.projectKey>auto-elite</sonar.projectKey>
+        <sonar.projectName>auto elite</sonar.projectName>
+        <sonar.host.url>http://localhost:9000</sonar.host.url>
     </properties>
 
     <dependencies>
@@ -40,6 +43,14 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        
+        <!-- Source: https://mvnrepository.com/artifact/org.sonarsource.sonarqube/sonar-plugin-api-impl -->
+        <dependency>
+          <groupId>org.sonarsource.sonarqube</groupId>
+          <artifactId>sonar-plugin-api-impl</artifactId>
+          <version>26.11.0.134175</version>
+          <scope>compile</scope>
         </dependency>
 
         <!-- Database -->
@@ -116,6 +127,11 @@
                 <configuration>
                     <argLine>-XX:+EnableDynamicAgentLoading -Dnet.bytebuddy.experimental=true</argLine>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>5.0.0.4389</version>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
